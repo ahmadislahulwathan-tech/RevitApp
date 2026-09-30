@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  code, kbd, samp, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Print Specific Rules */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm 10mm;
+  }
+
+  @page page-portrait {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  @page page-landscape {
+    size: A4 landscape;
+    margin: 8mm 10mm;
+  }
+
+  /* Kwitansi default: Portrait */
+  #kwitansi-printable-area, .print-portrait {
+    page: page-portrait;
+    max-width: 210mm !important;
+  }
+
+  /* BKU, BKT, Bank, Pajak, Laporan default: Landscape */
+  #bku-printable-area,
+  #bank-printable-area,
+  #bkt-printable-area,
+  #pajak-printable-area,
+  #report-printable-area,
+  .print-landscape,
+  .a4-landscape-page {
+    page: page-landscape;
+  }
+
+  body, html {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  header, footer, nav, aside, button, select, input, .print\:hidden, [role="navigation"] {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  [id$="-printable-area"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .a4-landscape-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .a4-landscape-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+
+  .print\:border-none {
+    border: none !important;
+  }
+
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+
+  .print\:m-0 {
+    margin: 0 !important;
+  }
+
+  .print\:w-full {
+    width: 100% !important;
+  }
+
+  .print\:overflow-visible {
+    overflow: visible !important;
+  }
+
+  .print\:static {
+    position: static !important;
+  }
+}
+
